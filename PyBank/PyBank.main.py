@@ -47,9 +47,7 @@ with open(csvpath, newline="") as csvfile:
     print("Total Months: " + str(total_months))
     print("Total: $" + str(total_profit_loss))
     print("Average Change: $" + str(ave_change))
-    print(date_of_great_dec)
-    print(great_dec_change)
-    print(date_of_great_inc)
-    print(great_inc_change)
+    print("Greatest Decrease in Profits: " + str(date_of_great_dec) + " ( $" + str(great_dec_change) + ")")
+    print("Greatest Decrease in Profits: " + str(date_of_great_inc) + "( $" + str(great_inc_change) + ")")
 
    
