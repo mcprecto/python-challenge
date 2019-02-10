@@ -17,7 +17,9 @@ with open(csvpath, newline="") as csvfile:
     total_change = 0
     ave_change = 0
     great_dec_change = 0
+    date_of_great_dec = 0
     great_inc_change = 0
+    date_of_great_inc = 0
 
     for row in csvreader:
     
@@ -27,8 +29,10 @@ with open(csvpath, newline="") as csvfile:
             change = curr_profit_loss - prev_profit_loss
             if change > great_inc_change:
                 great_inc_change = change
+                date_of_great_inc = row[0]
             elif change < great_dec_change:
                 great_dec_change = change
+                date_of_great_dec = row[0]
             total_change += change
             ave_change = total_change / (total_months -1)
             
@@ -37,10 +41,15 @@ with open(csvpath, newline="") as csvfile:
         total_profit_loss += curr_profit_loss
 
     
-    print("The total number of months included in the data set is " + str(total_months) + ".")
-    print(str(total_profit_loss))
-    print(str(ave_change))
+    print("Financial Analysis")
+    print("--------------------------")
+
+    print("Total Months: " + str(total_months))
+    print("Total: $" + str(total_profit_loss))
+    print("Average Change: $" + str(ave_change))
+    print(date_of_great_dec)
     print(great_dec_change)
+    print(date_of_great_inc)
     print(great_inc_change)
 
    
